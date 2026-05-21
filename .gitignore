@@ -31,3 +31,7 @@ pnpm-debug.log*
 Mohammed_Debashi_CV.docx
 *.docx
 *.pdf
+
+.dev.vars*
+!.dev.vars.example
+!.env.example
