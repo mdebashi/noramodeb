@@ -1,0 +1,87 @@
+---
+import Section from "./Section.astro";
+
+interface Service {
+  number: string;
+  title: string;
+  body: string;
+  bullets: string[];
+}
+
+const services: Service[] = [
+  {
+    number: "01",
+    title: "Build with us",
+    body:
+      "We design, architect, and deliver new products end-to-end — from greenfield MVPs through to production launch. Suited to founders and teams that need senior engineering as the principal builder.",
+    bullets: [
+      "Product discovery → architecture → MVP",
+      "Web platforms, dashboards, AI-enabled products",
+      "Production-grade TypeScript, React, and Node",
+    ],
+  },
+  {
+    number: "02",
+    title: "Architect with us",
+    body:
+      "Independent architecture reviews and platform engineering for teams hitting scale, complexity, or delivery friction. We diagnose, propose, and — when needed — implement.",
+    bullets: [
+      "System and frontend architecture review",
+      "Micro-frontends, modularisation, design systems",
+      "Data modelling and API contract design",
+    ],
+  },
+  {
+    number: "03",
+    title: "Embed with us",
+    body:
+      "Fractional staff-level engineering inside your team. We raise the technical bar, set standards, mentor engineers, and unblock delivery on the work that matters most.",
+    bullets: [
+      "Technical leadership inside product squads",
+      "Codebase health, standards, mentoring",
+      "Hiring support and engineering practice",
+    ],
+  },
+  {
+    number: "04",
+    title: "AI, applied",
+    body:
+      "LLM and agent-based capabilities built into real products — with the boundaries, evaluation, and structured outputs that keep them dependable in production.",
+    bullets: [
+      "Multi-agent workflows and orchestration",
+      "Structured data pipelines for LLM outputs",
+      "Evaluation, observability, cost control",
+    ],
+  },
+];
+---
+
+<Section
+  id="services"
+  eyebrow="Services"
+  title="Four ways to work with us."
+  description="Most engagements blend more than one. We scope tightly, deliver in short cycles, and write code from day one."
+>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    {
+      services.map((s) => (
+        <article class="card">
+          <div class="flex items-center justify-between">
+            <span class="step-num">{s.number}</span>
+            <span class="text-[color:var(--color-fg-subtle)] text-xs uppercase tracking-widest">Service</span>
+          </div>
+          <h3 class="mt-5 text-2xl font-semibold tracking-tight">{s.title}</h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-[color:var(--color-fg-muted)]">{s.body}</p>
+          <ul class="mt-5 space-y-2.5">
+            {s.bullets.map((b) => (
+              <li class="flex items-start gap-3 text-sm text-[color:var(--color-fg)]">
+                <span class="mt-1.5 inline-block w-1 h-1 rounded-full bg-[color:var(--color-fg-muted)]"></span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</Section>

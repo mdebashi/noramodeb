@@ -1,0 +1,76 @@
+---
+import Section from "./Section.astro";
+
+const steps: { num: string; title: string; body: string }[] = [
+  {
+    num: "01",
+    title: "Discover",
+    body:
+      "We start by understanding the business outcome, the users, and the technical constraints. Tight discovery → a shared map of what good looks like.",
+  },
+  {
+    num: "02",
+    title: "Architect",
+    body:
+      "We design the smallest viable architecture that gets you there — clear contracts, sensible boundaries, and a path to scale that doesn't paint you into a corner.",
+  },
+  {
+    num: "03",
+    title: "Build",
+    body:
+      "We deliver in short cycles, with production-grade code from day one. Strongly typed, well-tested, observable. No throwaway prototypes that linger forever.",
+  },
+  {
+    num: "04",
+    title: "Ship & hand over",
+    body:
+      "We release into production, document the system, and leave your team with code they understand and can own. No lock-in, no hidden complexity.",
+  },
+];
+---
+
+<Section
+  id="approach"
+  eyebrow="Approach"
+  title="How we work."
+  description="Pragmatic, senior, hands-on. We earn our keep by writing code and making decisions that compound — not by producing slide decks."
+>
+  <ol class="relative grid grid-cols-1 md:grid-cols-2 gap-5">
+    {
+      steps.map((s) => (
+        <li class="card">
+          <div class="flex items-center gap-3">
+            <span class="step-num">{s.num}</span>
+            <span class="h-px flex-1 bg-[color:var(--color-border)]"></span>
+          </div>
+          <h3 class="mt-5 text-xl font-semibold tracking-tight">{s.title}</h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-[color:var(--color-fg-muted)]">{s.body}</p>
+        </li>
+      ))
+    }
+  </ol>
+
+  <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="card">
+      <div class="mono-caption">Principle 01</div>
+      <h4 class="mt-3 text-lg font-medium tracking-tight">Senior, always</h4>
+      <p class="mt-2 text-sm text-[color:var(--color-fg-muted)]">
+        Every engagement is delivered by senior engineers. No layered teams, no juniors learning on your time.
+      </p>
+    </div>
+    <div class="card">
+      <div class="mono-caption">Principle 02</div>
+      <h4 class="mt-3 text-lg font-medium tracking-tight">Outcome over output</h4>
+      <p class="mt-2 text-sm text-[color:var(--color-fg-muted)]">
+        We measure work by what it unlocks, not how much was written. Less code, more impact.
+      </p>
+    </div>
+    <div class="card">
+      <div class="mono-caption">Principle 03</div>
+      <h4 class="mt-3 text-lg font-medium tracking-tight">Boring tech, applied well</h4>
+      <p class="mt-2 text-sm text-[color:var(--color-fg-muted)]">
+        We pick mature tools and use them with care. Novel where it matters — predictable everywhere else.
+      </p>
+    </div>
+  </div>
+</Section>

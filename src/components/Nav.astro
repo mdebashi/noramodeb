@@ -1,0 +1,56 @@
+---
+import Logo from "./Logo.astro";
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const links: Array<{ href: string; label: string }> = [
+  { href: "/services", label: "Services" },
+  { href: "/approach", label: "Approach" },
+  { href: "/#sectors", label: "Sectors" },
+  { href: "/#principal", label: "About" },
+];
+---
+
+<header
+  class="sticky top-0 z-40 backdrop-blur-md bg-[color:var(--color-bg)]/70 border-b border-[color:var(--color-border)]"
+>
+  <div class="container-page flex items-center justify-between h-16">
+    <Logo />
+    <nav aria-label="Primary" class="hidden md:flex items-center gap-1">
+      {
+        links.map((link) => {
+          const isActive =
+            (link.href === "/" && path === "/") ||
+            (link.href !== "/" && path.startsWith(link.href.split("#")[0]) && !link.href.startsWith("/#"));
+          return (
+            <a
+              href={link.href}
+              class:list={[
+                "px-3 py-2 text-sm rounded-md transition-colors",
+                isActive
+                  ? "text-[color:var(--color-fg)]"
+                  : "text-[color:var(--color-fg-muted)] hover:text-[color:var(--color-fg)]",
+              ]}
+            >
+              {link.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="/contact" class="btn btn-primary">
+        Start a project
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path
+            d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>

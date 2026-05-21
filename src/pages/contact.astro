@@ -1,0 +1,94 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import Section from "~/components/Section.astro";
+
+// Static-first contact page — mailto link with a subject prefilled.
+// No backend, no APIs, no spam-bait forms.
+const mailtoBase = "mailto:hello@noramodeb.com";
+const projectSubject = encodeURIComponent("New project enquiry");
+const adviceSubject = encodeURIComponent("Advisory / short engagement");
+---
+
+<BaseLayout
+  title="Contact — Noramo Deb"
+  description="Start a project with Noramo Deb. We respond to every enquiry within one working day."
+>
+  <Section
+    eyebrow="Contact"
+    title="Start a conversation."
+    description="Tell us what you're building, the constraints you're working with, and what good looks like. We respond within one working day."
+  >
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div class="md:col-span-7">
+        <div class="card">
+          <div class="mono-caption">Direct</div>
+          <a
+            href={`${mailtoBase}?subject=${projectSubject}`}
+            class="mt-4 block text-2xl md:text-3xl font-medium tracking-tight hover:underline underline-offset-4 decoration-[color:var(--color-border-strong)]"
+          >hello@noramodeb.com →</a>
+
+          <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <a
+              href={`${mailtoBase}?subject=${projectSubject}`}
+              class="card hover:translate-y-[-2px]"
+            >
+              <div class="mono-caption">For</div>
+              <div class="mt-2 text-lg font-medium tracking-tight">New projects</div>
+              <p class="mt-2 text-sm text-[color:var(--color-fg-muted)]">
+                Greenfield builds, rebuilds, platform engineering, or AI integrations.
+              </p>
+              <div class="mt-5 text-sm text-[color:var(--color-fg)] flex items-center gap-2">
+                Email project brief
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href={`${mailtoBase}?subject=${adviceSubject}`}
+              class="card hover:translate-y-[-2px]"
+            >
+              <div class="mono-caption">For</div>
+              <div class="mt-2 text-lg font-medium tracking-tight">Advice &amp; short engagements</div>
+              <p class="mt-2 text-sm text-[color:var(--color-fg-muted)]">
+                Architecture review, hiring support, second opinions, sounding board.
+              </p>
+              <div class="mt-5 text-sm text-[color:var(--color-fg)] flex items-center gap-2">
+                Email advisory request
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-5 space-y-5">
+        <div class="card">
+          <div class="mono-caption">What helps</div>
+          <ul class="mt-4 space-y-3 text-sm text-[color:var(--color-fg)]">
+            <li class="flex items-start gap-3"><span class="mt-1.5 w-1 h-1 rounded-full bg-[color:var(--color-fg-muted)]"></span><span>A short description of what you're building or trying to fix.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 w-1 h-1 rounded-full bg-[color:var(--color-fg-muted)]"></span><span>The shape of the engagement you're imagining.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 w-1 h-1 rounded-full bg-[color:var(--color-fg-muted)]"></span><span>Timeframe, budget, and any constraints worth knowing.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 w-1 h-1 rounded-full bg-[color:var(--color-fg-muted)]"></span><span>Anything we shouldn't assume.</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="mono-caption">Where we are</div>
+          <div class="mt-4 text-sm">
+            <div class="text-[color:var(--color-fg)]">Noramo Deb Limited</div>
+            <div class="text-[color:var(--color-fg-muted)] mt-1">London, United Kingdom</div>
+            <div class="text-[color:var(--color-fg-muted)] mt-1">Registered in England &amp; Wales</div>
+          </div>
+
+          <div class="mt-6 flex items-center gap-2">
+            <span class="pill"><span class="dot"></span>Currently accepting new engagements</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

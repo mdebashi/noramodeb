@@ -1,0 +1,78 @@
+---
+import Section from "./Section.astro";
+
+interface Capability {
+  title: string;
+  body: string;
+  icon: string;
+}
+
+const capabilities: Capability[] = [
+  {
+    title: "Product engineering",
+    body:
+      "End-to-end build of web products. We take requirements, designs, or rough ideas and turn them into well-architected, production-grade applications.",
+    icon: `<path d="M3 7h18M3 12h18M3 17h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`,
+  },
+  {
+    title: "Platform & architecture",
+    body:
+      "API design, system decomposition, micro-frontends, data modelling, and the foundations that determine whether a product scales or stalls.",
+    icon: `<rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>`,
+  },
+  {
+    title: "AI integration",
+    body:
+      "Practical LLM and multi-agent systems wired into real workflows — structured outputs, evaluation, and the boundaries that keep them reliable.",
+    icon: `<circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`,
+  },
+  {
+    title: "Frontend at scale",
+    body:
+      "React, TypeScript, and design systems built to handle complexity without becoming complicated. Performance, accessibility, and DX as first-class concerns.",
+    icon: `<path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 10h16M9 14h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`,
+  },
+  {
+    title: "Backend & APIs",
+    body:
+      "Node.js, GraphQL, REST, and PostgreSQL services with sensible boundaries, strong typing end-to-end, and clean data contracts.",
+    icon: `<path d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3M4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7" stroke="currentColor" stroke-width="1.5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.5"/>`,
+  },
+  {
+    title: "Technical leadership",
+    body:
+      "Embedded staff-level engineering: setting standards, raising the technical bar, mentoring teams, and unblocking delivery.",
+    icon: `<circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.5"/>`,
+  },
+];
+---
+
+<Section
+  id="capabilities"
+  eyebrow="Capabilities"
+  title="A focused practice, with the depth to take on complex work."
+  description="Noramo Deb is built around senior, hands-on engineering. We bring the experience of large-scale platforms and the velocity of a small consultancy."
+>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    {
+      capabilities.map((c) => (
+        <article class="card group">
+          <div class="flex items-start gap-4">
+            <div
+              class="shrink-0 w-10 h-10 grid place-items-center rounded-md border border-[color:var(--color-border-strong)] text-[color:var(--color-fg)]"
+              aria-hidden="true"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" set:html={c.icon} />
+            </div>
+            <div>
+              <h3 class="text-[17px] font-medium tracking-tight">{c.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-[color:var(--color-fg-muted)]">
+                {c.body}
+              </p>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</Section>

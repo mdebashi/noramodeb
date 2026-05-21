@@ -1,0 +1,54 @@
+---
+import Section from "./Section.astro";
+
+const groups: { label: string; items: string[] }[] = [
+  {
+    label: "Languages",
+    items: ["TypeScript", "JavaScript (ES6+)", "Node.js", "SQL"],
+  },
+  {
+    label: "Frontend",
+    items: ["React 19", "Astro", "Redux", "Apollo Client", "Tailwind CSS", "SASS"],
+  },
+  {
+    label: "Backend",
+    items: ["Node.js", "Hapi.js", "GraphQL · Hasura", "REST APIs", "PostgreSQL", "Prisma"],
+  },
+  {
+    label: "Platform",
+    items: ["AWS (Lambda · EC2 · CodePipeline)", "Docker · Compose", "CI/CD", "Cloudflare"],
+  },
+  {
+    label: "AI",
+    items: ["LLM workflows", "Multi-agent systems", "Structured outputs", "Eval & observability"],
+  },
+  {
+    label: "Practice",
+    items: ["TDD · BDD", "Jest · RTL · Cypress", "WCAG · GDS standards", "Performance budgets"],
+  },
+];
+---
+
+<Section
+  id="stack"
+  eyebrow="Engineering stack"
+  title="Modern tools, used with judgement."
+  description="We don't chase frameworks. We pick what fits, ship it well, and leave behind code your team is glad to inherit."
+>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    {
+      groups.map((g) => (
+        <div class="card">
+          <div class="mono-caption">{g.label}</div>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            {g.items.map((i) => (
+              <li class="text-xs px-2.5 py-1.5 rounded-md border border-[color:var(--color-border)] text-[color:var(--color-fg)] bg-white/[0.02]">
+                {i}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</Section>

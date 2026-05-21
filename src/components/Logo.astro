@@ -1,0 +1,33 @@
+---
+interface Props {
+  class?: string;
+  label?: string;
+}
+
+const { class: className, label = "Noramo Deb" } = Astro.props;
+---
+
+<a
+  href="/"
+  class:list={["inline-flex items-center gap-2.5 group", className]}
+  aria-label="Noramo Deb — home"
+>
+  <span
+    class="relative inline-grid place-items-center w-7 h-7 rounded-md border border-[color:var(--color-border-strong)] bg-[radial-gradient(closest-side,_rgba(255,255,255,0.18),_rgba(255,255,255,0.02))]"
+    aria-hidden="true"
+  >
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1.25 12V2L9.5 10.25V2H12.75V12L4.5 3.75V12H1.25Z"
+        fill="currentColor"
+      ></path>
+    </svg>
+  </span>
+  <span class="font-medium tracking-tight text-[15px]">{label}</span>
+</a>

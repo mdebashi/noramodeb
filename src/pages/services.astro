@@ -1,0 +1,155 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import Section from "~/components/Section.astro";
+import CTA from "~/components/CTA.astro";
+import TechStack from "~/components/TechStack.astro";
+
+const services = [
+  {
+    number: "01",
+    title: "Build with us",
+    summary:
+      "End-to-end product delivery. Suited to founders and product teams that need senior engineering as the principal builder.",
+    body: [
+      "We design, architect, and ship new products from greenfield through to production. The same senior engineer you speak to at the start is the one writing code at the end.",
+      "Typical engagements run six to sixteen weeks, with working software deployed throughout. We integrate tightly with your product, design, and stakeholder layers.",
+    ],
+    deliverables: [
+      "Working production application — frontend, backend, infrastructure",
+      "Architecture documentation and decision records",
+      "Test suite, CI/CD pipeline, observability baseline",
+      "Handover and team enablement",
+    ],
+    suits: [
+      "Founders building a first product or platform",
+      "Internal teams missing capacity for a critical build",
+      "Existing products needing a rebuild or major rework",
+    ],
+  },
+  {
+    number: "02",
+    title: "Architect with us",
+    summary:
+      "Independent architecture and platform engineering for teams hitting scale, complexity, or delivery friction.",
+    body: [
+      "We assess where the system is, where it needs to go, and the smallest set of changes that closes the gap. The deliverable is a concrete plan you can execute — and, where you want it, the implementation that proves it.",
+      "Engagements typically begin with a two- to four-week diagnostic, then transition into focused implementation work.",
+    ],
+    deliverables: [
+      "Architecture review with prioritised recommendations",
+      "Reference implementation of the highest-leverage changes",
+      "Frontend architecture (micro-frontends, design systems)",
+      "API design, data modelling, integration patterns",
+    ],
+    suits: [
+      "Codebases that are slowing teams down",
+      "Frontend monoliths needing decomposition",
+      "Teams scaling beyond their original architecture",
+    ],
+  },
+  {
+    number: "03",
+    title: "Embed with us",
+    summary:
+      "Fractional staff-level engineering inside your team. Long-term technical partnership without the headcount.",
+    body: [
+      "We embed alongside your engineers — running standards, mentoring, unblocking the hardest work, and raising the technical bar. We work the way your team works, in your tools, on your roadmap.",
+      "Engagements are typically two to four days per week, on three- to six-month rolling terms.",
+    ],
+    deliverables: [
+      "Senior engineering capacity inside your product team",
+      "Codebase health: standards, reviews, refactors",
+      "Mentoring and pairing with your engineers",
+      "Hiring support: interview design, technical screens",
+    ],
+    suits: [
+      "Teams without a staff or principal engineer in place",
+      "Founders without an in-house CTO",
+      "Engineering leaders needing senior backup",
+    ],
+  },
+  {
+    number: "04",
+    title: "AI, applied",
+    summary:
+      "Practical LLM and multi-agent capabilities, built into real products. No demoware.",
+    body: [
+      "We've shipped AI workflows that survive contact with production: structured outputs feeding downstream systems, multi-agent orchestration with clear boundaries, and evaluation built in from day one.",
+      "We treat AI as one capability among many. We bring it in where it earns its keep — and rule it out where it doesn't.",
+    ],
+    deliverables: [
+      "Multi-agent system design and orchestration",
+      "Structured output pipelines (LLM → typed data)",
+      "Evaluation harness, cost and latency observability",
+      "Integration into existing product surfaces",
+    ],
+    suits: [
+      "Products where AI is a differentiator, not the whole story",
+      "Teams who've tried prototypes and need production",
+      "Workflows with structured, high-value decisions",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Services — Noramo Deb"
+  description="Four ways to engage Noramo Deb: build, architect, embed, and AI integration. Senior engineering applied with judgement."
+>
+  <Section
+    eyebrow="Services"
+    title="Senior engineering, four ways."
+    description="Most engagements blend more than one. We scope tightly, deliver in short cycles, and write code from day one."
+  >
+    <div class="space-y-5">
+      {
+        services.map((s) => (
+          <article class="card">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div class="md:col-span-4">
+                <div class="step-num">{s.number}</div>
+                <h2 class="mt-3 text-2xl md:text-3xl font-semibold tracking-tight">{s.title}</h2>
+                <p class="mt-4 text-[15px] text-[color:var(--color-fg-muted)] leading-relaxed">{s.summary}</p>
+              </div>
+              <div class="md:col-span-8">
+                <div class="space-y-4">
+                  {s.body.map((p) => (
+                    <p class="text-[15px] leading-relaxed text-[color:var(--color-fg)]">{p}</p>
+                  ))}
+                </div>
+
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <div class="mono-caption">Deliverables</div>
+                    <ul class="mt-3 space-y-2">
+                      {s.deliverables.map((d) => (
+                        <li class="flex items-start gap-3 text-sm">
+                          <span class="mt-1.5 inline-block w-1 h-1 rounded-full bg-[color:var(--color-fg-muted)]"></span>
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <div class="mono-caption">Best for</div>
+                    <ul class="mt-3 space-y-2">
+                      {s.suits.map((d) => (
+                        <li class="flex items-start gap-3 text-sm">
+                          <span class="mt-1.5 inline-block w-1 h-1 rounded-full bg-[color:var(--color-fg-muted)]"></span>
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <TechStack />
+  <CTA />
+</BaseLayout>

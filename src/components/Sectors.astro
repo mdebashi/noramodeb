@@ -1,0 +1,52 @@
+---
+import Section from "./Section.astro";
+
+// Note: organisations represent sectors the principal has delivered into.
+// Displayed as anonymised, capability-focused experience.
+const sectors: { name: string; subtitle: string }[] = [
+  { name: "UK Central Government", subtitle: "Defence · Risk · Reporting" },
+  { name: "DEFRA", subtitle: "Public sector services" },
+  { name: "Met Office", subtitle: "National infrastructure" },
+  { name: "Emirates Airline", subtitle: "Global aviation" },
+  { name: "Channel 5 / My5", subtitle: "Broadcast streaming" },
+  { name: "Sky", subtitle: "Media & broadcast" },
+  { name: "Sainsbury's", subtitle: "Retail" },
+  { name: "RBS", subtitle: "Financial services" },
+  { name: "IG Group", subtitle: "Trading & finance" },
+  { name: "EE", subtitle: "Telecommunications" },
+];
+---
+
+<Section
+  id="sectors"
+  eyebrow="Track record"
+  title="Senior delivery across high-stakes sectors."
+  description="The principal has led and shipped software inside organisations where reliability, scale, and standards are non-negotiable."
+>
+  <div class="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-bg-elevated)]/40">
+    <div class="grid grid-cols-2 md:grid-cols-5 divide-x divide-y md:divide-y-0 divide-[color:var(--color-border)]">
+      {
+        sectors.slice(0, 5).map((s) => (
+          <div class="p-6">
+            <div class="text-sm font-medium tracking-tight">{s.name}</div>
+            <div class="mt-1 text-xs text-[color:var(--color-fg-muted)]">{s.subtitle}</div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-5 divide-x divide-y divide-[color:var(--color-border)] border-t border-[color:var(--color-border)]">
+      {
+        sectors.slice(5).map((s) => (
+          <div class="p-6">
+            <div class="text-sm font-medium tracking-tight">{s.name}</div>
+            <div class="mt-1 text-xs text-[color:var(--color-fg-muted)]">{s.subtitle}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <p class="mt-6 text-sm text-[color:var(--color-fg-subtle)] max-w-2xl">
+    Engagements delivered by the principal as senior/lead engineer, consultant, or via partner agencies. Noramo Deb Limited operates as an independent consultancy.
+  </p>
+</Section>

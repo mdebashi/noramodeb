@@ -1,0 +1,36 @@
+---
+interface Props {
+  id?: string;
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  class?: string;
+  containerClass?: string;
+}
+
+const { id, eyebrow, title, description, class: className, containerClass } = Astro.props;
+---
+
+<section id={id} class:list={["relative py-20 md:py-28", className]}>
+  <div class:list={["container-page", containerClass]}>
+    {(eyebrow || title || description) && (
+      <header class="max-w-3xl">
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        {title && (
+          <h2
+            class="mt-5 font-semibold"
+            style="font-size: clamp(1.9rem, 4vw, var(--text-h2)); line-height: var(--text-h2--line-height); letter-spacing: var(--text-h2--letter-spacing);"
+          >
+            {title}
+          </h2>
+        )}
+        {description && (
+          <p class="mt-5 text-lg text-[color:var(--color-fg-muted)] max-w-2xl">{description}</p>
+        )}
+      </header>
+    )}
+    <div class={(eyebrow || title || description) ? "mt-14" : ""}>
+      <slot />
+    </div>
+  </div>
+</section>
